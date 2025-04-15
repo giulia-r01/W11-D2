@@ -1,0 +1,12 @@
+.prince {
+  background-color: rgb(31, 37, 86);
+}
+
+.same-height {
+  height: 300px;
+  object-fit: cover;
+}
+
+.color {
+  color: rgb(31, 37, 86);
+}
