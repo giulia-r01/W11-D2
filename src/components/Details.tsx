@@ -13,25 +13,26 @@ const Details = function () {
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
-  useEffect(() => {
-    const fetchArticle = async () => {
-      try {
-        const response = await fetch(
-          `https://api.spaceflightnewsapi.net/v4/articles/${myId}`
-        )
-        if (!response.ok) throw new Error("Errore nella fetch")
-        const data: Result = await response.json()
-        setArticle(data)
-      } catch (error) {
-        console.error(error)
-        setHasError(true)
-      } finally {
-        setIsLoading(false)
-      }
+  const fetchArticle = async () => {
+    try {
+      const response = await fetch(
+        `https://api.spaceflightnewsapi.net/v4/articles/${myId}`
+      )
+      if (!response.ok) throw new Error("Errore nella fetch")
+      const data: Result = await response.json()
+      console.log(data)
+      setArticle(data)
+    } catch (error) {
+      console.error(error)
+      setHasError(true)
+    } finally {
+      setIsLoading(false)
     }
+  }
 
+  useEffect(() => {
     fetchArticle()
-  }, [myId])
+  }, [])
 
   if (isLoading) return <p>Caricamento...</p>
   if (hasError || !article) return <p>Errore nel caricamento dell'articolo</p>

@@ -16,8 +16,8 @@ export interface Result {
   published_at: Date
   updated_at: Date
   featured: boolean
-  launches: any[]
-  events: any[]
+  launches: []
+  events: []
 }
 
 export interface Author {
