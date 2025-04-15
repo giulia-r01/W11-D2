@@ -20,6 +20,7 @@ const SingleArticle = function (props: SingleArticleProps) {
           <Card.Title>{props.article.title}</Card.Title>
 
           <Button
+            className="prince"
             onClick={() => {
               // portare l'utente alla pagina /details/id-del-libro
               navigate("/details/" + props.article.id)
